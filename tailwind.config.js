@@ -13,6 +13,13 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
+    fontFamily: {
+      poppins: ["Poppins", "sans-serif"],
+      inter: ["Inter", "sans-serif"],
+      nunito: ["Nunito Sans", "sans-serif"],
+      Mons: ["Montserrat", "sans-serif"],
+      lato: ["Lato", "sans-serif"],
+    },
   },
   plugins: [],
 };
