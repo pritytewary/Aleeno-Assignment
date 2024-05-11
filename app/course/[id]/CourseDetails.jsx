@@ -30,19 +30,22 @@ const renderStars = (rating) => {
   );
   return stars;
 };
+
 const CourseDetails = ({ course }) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="flex items-center justify-center bg-gray-900 pt-6 pb-20"
+      className="flex items-center justify-center bg-gray-900 pt-6 pb-20 px-4 md:px-0"
     >
-      <div className="flex max-w-7xl w-full gap-20">
-        <div className="">
-          <div className="flex flex-col text-white max-w-3xl gap-6">
-            <h1 className="text-4xl font-bold">{course.name}</h1>
-            <p className="text-xl font-medium">{course.shortDescription}</p>
-            <div className="flex gap-8">
+      <div className="flex flex-col lg:flex-row max-w-7xl w-full gap-6 md:gap-12">
+        <div className="lg:w-3/5">
+          <div className="flex flex-col text-white max-w-full lg:max-w-3xl gap-6">
+            <h1 className="text-4xl lg:text-5xl font-bold">{course.name}</h1>
+            <p className="text-xl lg:text-2xl font-medium">
+              {course.shortDescription}
+            </p>
+            <div className="flex gap-4 lg:gap-8">
               <p className="flex gap-2 items-center ">
                 {renderStars(course.rating)}
               </p>
@@ -74,9 +77,9 @@ const CourseDetails = ({ course }) => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.5 }}
-            className="mt-20 border border-gray-100 shadow-lg shadow-gray-200 rounded-md max-w-2xl flex flex-col gap-4 text-white p-6"
+            className="mt-10 lg:mt-20 border border-gray-100 shadow-lg shadow-gray-200 rounded-md max-w-full lg:max-w-2xl flex flex-col gap-4 text-white p-6"
           >
-            <h1 className="text-2xl font-bold">Course outcomes</h1>
+            <h1 className="text-2xl lg:text-3xl font-bold">Course outcomes</h1>
             {course.courseoutcome.map((outcome, index) => (
               <motion.p
                 key={index}
@@ -93,16 +96,16 @@ const CourseDetails = ({ course }) => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2 }}
-            className="mt-14 max-w-4xl border border-gray-100 shadow-lg shadow-gray-200 rounded-md flex flex-col text-white "
+            className="mt-10 lg:mt-14 max-w-full lg:max-w-4xl border border-gray-100 shadow-lg shadow-gray-200 rounded-md flex flex-col text-white "
           >
-            <h1 className="font-bold text-2xl px-6 py-3 flex gap-2 mt-2 items-center ">
+            <h1 className="font-bold text-2xl lg:text-3xl px-6 py-3 flex gap-2 mt-2 items-center ">
               <PiTreeStructure
                 className="text-green-600 rotate-90 "
                 size={25}
               />
               Course Structure
             </h1>
-            <div className="flex justify-between items-center px-6 py-2">
+            <div className="flex flex-col lg:flex-row justify-between items-center px-6 py-2">
               <p>Total lecture: {course.totallecture}</p>
               <p className="flex gap-1 items-center">
                 <IoMdTime size={20} className="text-white" /> Total duration:{" "}
@@ -118,13 +121,12 @@ const CourseDetails = ({ course }) => {
                 className="flex justify-between border border-gray-300 py-2 px-6  font-semibold font-nunito hover:bg-green-300 hover:text-black cursor-pointer"
               >
                 <p>{item}</p>
-
                 <p>Week-{index + 1}</p>
               </motion.div>
             ))}
           </motion.div>
 
-          <div className="mt-10 bg-orange-500 font-semibold hover:bg-orange-200 hover:text-gray-800  text-white rounded-md px-4 py-2 ">
+          <div className="mt-10 lg:mt-12 bg-orange-500 font-semibold hover:bg-orange-200 hover:text-gray-800  text-white rounded-md px-4 py-2 ">
             {course.schedule}
           </div>
 
@@ -132,9 +134,11 @@ const CourseDetails = ({ course }) => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2 + course.expandable.length * 0.1 }}
-            className=" max-w-2xl flex flex-col text-white mt-12"
+            className="mt-10 lg:mt-12 max-w-full lg:max-w-2xl flex flex-col text-white"
           >
-            <h1 className="font-bold text-2xl mb-4">Course Requirements</h1>
+            <h1 className="font-bold text-2xl lg:text-3xl mb-4">
+              Course Requirements
+            </h1>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -147,16 +151,19 @@ const CourseDetails = ({ course }) => {
           </motion.div>
         </div>
 
-        <div>
+        <div className="lg:w-2/5">
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1 }}
-            className=" bg-gradient-to-r from-gray-600 to-gray-800 text-white shadow-lg rounded-lg overflow-hidden pb-9 w-96"
+            className=" bg-gradient-to-r from-gray-600 to-gray-800 text-white shadow-lg rounded-lg overflow-hidden pb-9 w-full md:w-96"
           >
-            <img src={course.image} alt="" className="w-96 h-64 " />
+            <img src={course.image} alt="" className="w-full h-64 md:h-auto" />
             <div className="mt-6 flex-col gap-3 flex px-4">
-              <p className="font-bold text-3xl font-inter"> ₹{course.price}</p>
+              <p className="font-bold text-3xl lg:text-4xl font-inter">
+                {" "}
+                ₹{course.price}
+              </p>
               <p className="font-nunito">
                 Includes{" "}
                 <span className="font-extrabold text-white">
@@ -165,7 +172,7 @@ const CourseDetails = ({ course }) => {
                 to current and future updates to the course. Learn at your own
                 pace, anytime.
               </p>
-              <button className="bg-green-500 px-6 py-2 items-center justify-center flex w-40 rounded-lg text-white font-poppins mx-auto mt-4">
+              <button className="bg-green-500 px-6 py-2 items-center justify-center flex w-40 lg:w-full rounded-lg text-white font-poppins mx-auto mt-4">
                 Enroll Now
               </button>
             </div>

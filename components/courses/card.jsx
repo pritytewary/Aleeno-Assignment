@@ -37,7 +37,7 @@ export default function CourseCard({ course, index }) {
               </p>
             </div>
 
-            {/* Ekhane ekta button toiri korbi pore jets current status dekhabe  */}
+            <button></button>
           </div>
         </div>
       </Link>
