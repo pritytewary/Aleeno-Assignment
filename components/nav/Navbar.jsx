@@ -1,10 +1,19 @@
+"use client";
+
 import Image from "next/image";
-import { IoSearchOutline } from "react-icons/io5";
+import { IoSearchOutline, IoMenuOutline } from "react-icons/io5";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div className=" flex justify-between items-center h-24  px-16  bg-gradient-to-br from-gray-900 to-gray-950">
+    <div className="flex justify-between items-center h-24 px-6 sm:px-16 bg-gradient-to-br from-gray-900 to-gray-950">
       <div>
         <Image
           src={"/logo1.jpg"}
@@ -14,7 +23,7 @@ export default function Navbar() {
         />
       </div>
 
-      <div className="flex gap-6 items-center justify-center">
+      <div className="flex items-center gap-6">
         <div className="sm:flex items-center gap-2 hidden">
           <input
             placeholder="Search..."
@@ -27,16 +36,28 @@ export default function Navbar() {
             <IoSearchOutline className="w-4 h-4" />
           </Link>
         </div>
-        <Link href={"/"}>
-          <button className=" hover:text-green-600 text-white text-xl font-semibold ">
-            Courses
+
+        <div className="sm:hidden">
+          <button
+            onClick={toggleMenu}
+            className="text-white hover:text-green-600 text-xl"
+          >
+            <IoMenuOutline />
           </button>
-        </Link>
-        <Link href={"/dashboard"}>
-          <button className=" hover:text-green-600 text-white text-xl font-semibold ">
-            Dashboard
-          </button>
-        </Link>
+        </div>
+
+        <div className={`sm:flex gap-6 ${isMenuOpen ? "flex" : "hidden"}`}>
+          <Link href={"/"}>
+            <button className="hover:text-green-600 text-white text-xl font-semibold">
+              Courses
+            </button>
+          </Link>
+          <Link href={"/dashboard"}>
+            <button className="hover:text-green-600 text-white text-xl font-semibold">
+              Dashboard
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
