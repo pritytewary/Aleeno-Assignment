@@ -47,6 +47,7 @@ const courses = [
     rating: 4,
     price: 999,
     enrolledstudents: 200,
+    progress: 21,
   },
   {
     id: 2,
@@ -89,6 +90,7 @@ const courses = [
     rating: 4.2,
     price: 599,
     enrolledstudents: 240,
+    progress: 50,
   },
   {
     id: 3,
@@ -126,6 +128,7 @@ const courses = [
     rating: 4.2,
     price: 799,
     enrolledstudents: 150,
+    progress: 82,
   },
   {
     id: 4,
@@ -163,6 +166,7 @@ const courses = [
     rating: 4.3,
     price: 1299,
     enrolledstudents: 176,
+    progress: 36,
   },
   {
     id: 5,
@@ -211,6 +215,7 @@ const courses = [
     rating: 4.6,
     price: 1299,
     enrolledstudents: 100,
+    progress: 74,
   },
   {
     id: 6,
@@ -255,6 +260,7 @@ const courses = [
     rating: 4.5,
     price: 999,
     enrolledstudents: 240,
+    progress: 20,
   },
   {
     id: 7,
@@ -296,6 +302,7 @@ const courses = [
     rating: 3.8,
     price: 1099,
     enrolledstudents: 236,
+    progress: 60,
   },
   {
     id: 8,
@@ -336,6 +343,7 @@ const courses = [
     rating: 3.9,
     price: 899,
     enrolledstudents: 185,
+    progress: 80,
   },
   {
     id: 9,
@@ -382,6 +390,7 @@ const courses = [
     rating: 4.2,
     price: 700,
     enrolledstudents: 290,
+    progress: 33,
   },
   {
     id: 10,
@@ -422,6 +431,7 @@ const courses = [
     rating: 4.8,
     price: 1199,
     enrolledstudents: 90,
+    progress: 45,
   },
 ];
 

@@ -2,8 +2,12 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Progress } from "../ui/progress";
+import { useState } from "react";
 
-export default function CourseCard({ course, index }) {
+export default function CourseCard({ course, index, showProgress }) {
+  const [isEnrolled, setIsEnrolled] = useState(true);
+
   return (
     <motion.div
       className="bg-gradient-to-r from-gray-600 to-gray-800 text-white shadow-lg rounded-lg overflow-hidden h-full"
@@ -36,8 +40,11 @@ export default function CourseCard({ course, index }) {
                 #pro
               </p>
             </div>
-
-            <button></button>
+            {showProgress && isEnrolled && (
+              <button className="mt-6">
+                <Progress value={course.progress} />
+              </button>
+            )}
           </div>
         </div>
       </Link>

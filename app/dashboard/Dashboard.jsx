@@ -14,7 +14,12 @@ const Dashboard = ({ courses }) => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 bg-gradient-to-br from-gray-900 to-gray-950 ">
           {courses.map((course, index) => (
-            <CourseCard course={course} index={index} key={course.id} />
+            <CourseCard
+              course={course}
+              index={index}
+              key={course.id}
+              showProgress={true} // Pass showProgress prop
+            />
           ))}
         </div>
       </div>
